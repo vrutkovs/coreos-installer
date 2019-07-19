@@ -574,10 +574,13 @@ write_ifcfg_files() {
     {
         echo "{"
         echo '  "ignition": {'
-        echo "   \"version\":\"${ignition_version}\""
+        echo "    \"version\":\"${ignition_version}\","
         echo '    "config": {'
-        echo "    \"${ign_config_appendormerge}\": [{"
+        echo "      \"${ign_config_appendormerge}\": [{"
         echo "        \"source\": \"data:,$(urlencode /tmp/ignition.ign)\""
+        echo '      }]'
+        echo '    }'
+        echo '  }'
         echo '  "storage": {'
         echo '    "files": ['
     } > /tmp/network.ign
