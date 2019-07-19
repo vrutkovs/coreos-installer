@@ -580,7 +580,7 @@ write_ifcfg_files() {
         echo "        \"source\": \"data:,$(urlencode /tmp/ignition.ign)\""
         echo '      }]'
         echo '    }'
-        echo '  }'
+        echo '  },'
         echo '  "storage": {'
         echo '    "files": ['
     } > /tmp/network.ign
@@ -651,9 +651,6 @@ write_ifcfg_files() {
     # Last symbol (comma) is being removed
     echo "${network_ign%?}]}}" >> /tmp/network.ign
     mv /tmp/network.ign /tmp/ignition.ign
-
-    cat /tmp/ignition.ign
-    sleep infinity
 }
 
 #########################################################
